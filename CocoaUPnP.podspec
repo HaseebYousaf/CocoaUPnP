@@ -17,7 +17,8 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/arcam/CocoaUPnP"
   s.license      = "MIT"
   s.author       = { "Paul Williamson" => "PaulW@arcam.co.uk" }
-  s.platform     = :ios, "7.0"
+  s.ios.deployment_target = "7.0"
+  s.tvos.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/arcam/CocoaUPnP.git", :tag => s.version.to_s }
   s.source_files = "CocoaUPnP", "CocoaUPnP/**/*.{h,m}"
   s.requires_arc = true
