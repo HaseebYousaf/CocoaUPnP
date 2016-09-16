@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'CocoaAsyncSocket', '~> 7.4'
   # s.dependency 'Ono', '~> 1.2'
-  s.dependency 'Ono', :git => 'https://github.com/master-nevi/Ono.git'
+  # s.dependency 'Ono', :git => 'https://github.com/master-nevi/Ono.git'
   s.dependency 'AFNetworking', '~> 3'
   s.dependency 'GCDWebServer', '~> 3.2'
 end
