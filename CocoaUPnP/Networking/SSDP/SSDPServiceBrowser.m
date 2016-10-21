@@ -87,6 +87,11 @@ typedef enum : NSUInteger {
         sourceAddress = [[interfaces allValues] firstObject];
     }
 
+    if (![self.multicastSocket enableReusePort:YES error:&err]) {
+        [self _notifyDelegateWithError:err];
+        return;
+    }
+
     if (![self.multicastSocket bindToAddress:sourceAddress error:&err]) {
         [self _notifyDelegateWithError:err];
         return;
@@ -108,6 +113,11 @@ typedef enum : NSUInteger {
     [self.unicastSocket setIPv6Enabled:NO];
 
     NSError *err = nil;
+
+    if (![self.unicastSocket enableReusePort:YES error:&err]) {
+        [self _notifyDelegateWithError:err];
+        return;
+    }
 
     if (![self.unicastSocket bindToPort:1900 error:&err]) {
         [self _notifyDelegateWithError:err];
