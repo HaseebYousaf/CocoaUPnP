@@ -28,5 +28,5 @@ Pod::Spec.new do |s|
   # s.dependency 'Ono', '~> 1.2'
   # s.dependency 'Ono', :git => 'https://github.com/master-nevi/Ono.git'
   s.dependency 'AFNetworking', '~> 3'
-  s.dependency 'GCDWebServer', '~> 3'
+  s.dependency 'GCDWebServer', '~> 3.4'
 end
