@@ -25,8 +25,7 @@ Pod::Spec.new do |s|
   s.xcconfig     = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
   s.dependency 'CocoaAsyncSocket', '~> 7.5'
-  # s.dependency 'Ono', '~> 1.2'
-  # s.dependency 'Ono', :git => 'https://github.com/master-nevi/Ono.git'
+  s.dependency 'Ono', '~> 2.1'
   s.dependency 'AFNetworking', '~> 3'
   s.dependency 'GCDWebServer', '~> 3.4'
 end
