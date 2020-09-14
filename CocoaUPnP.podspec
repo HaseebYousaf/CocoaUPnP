@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "CocoaUPnP"
-  s.version      = "3.0.0"
+  s.version      = "3.0.1"
   s.summary      = "A modern and well tested UPnP library which feature asynchronous network calls."
 
   s.description  = <<-DESC
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.xcconfig     = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
   s.dependency 'CocoaAsyncSocket', '~> 7'
-  s.dependency 'Ono', '~> 2'
+  s.dependency 'Ono', '~> 2.1'
   s.dependency 'AFNetworking/NSURLSession', '~> 4'
   s.dependency 'AFNetworking/Reachability', '~> 4'
   s.dependency 'AFNetworking/Security', '~> 4'
