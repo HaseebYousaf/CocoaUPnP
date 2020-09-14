@@ -12,6 +12,7 @@
 @property (strong, nonatomic) NSMutableArray *devices;
 @property (strong, nonatomic) NSMutableArray *unparsedUUIDs;
 @property (strong, nonatomic) NSMutableSet *observers;
+@property (strong, nonatomic) UPPDeviceParser *parser;
 @end
 
 @implementation UPPDiscovery
@@ -27,7 +28,7 @@
     return _sharedInstance;
 }
 
-- (NSArray *)availableDevices
+- (NSArray <UPPBasicDevice *>*)availableDevices
 {
     return [self.devices copy];
 }
@@ -125,7 +126,7 @@
 
         [self.devices removeObject:device];
 
-        for (id <UPPDiscoveryDelegate>delegate in self.observers) {
+        for (id <UPPDiscoveryDelegate>delegate in [self.observers copy]) {
             if ([delegate respondsToSelector:@selector(discovery:didRemoveDevice:)]) {
                 [delegate discovery:self didRemoveDevice:device];
             }
@@ -155,7 +156,12 @@
     }
 
     [self.unparsedUUIDs addObject:udn];
-    [UPPDeviceParser parseURL:service.xmlLocation withCompletion:^(NSArray *devices, NSError *error) {
+
+    if (_parser == nil) {
+        _parser = [[UPPDeviceParser alloc] init];
+    }
+
+    [_parser parseURL:service.xmlLocation withCompletion:^(NSArray *devices, NSError *error) {
         [self.unparsedUUIDs removeObject:udn];
         if (devices) {
             for (UPPBasicDevice *device in devices) {
@@ -173,7 +179,7 @@
 
     [self.devices addObject:device];
 
-    for (id <UPPDiscoveryDelegate>delegate in self.observers) {
+    for (id <UPPDiscoveryDelegate>delegate in [self.observers copy]) {
         if ([delegate respondsToSelector:@selector(discovery:didFindDevice:)]) {
             [delegate discovery:self didFindDevice:device];
         }

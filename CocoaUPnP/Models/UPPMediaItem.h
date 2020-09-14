@@ -27,6 +27,11 @@
 @property (copy, nonatomic, nullable) NSString *artist;
 
 /**
+ Any additional artists supplied by the server
+ */
+@property (copy, nonatomic, nullable) NSDictionary<NSString *, NSString *> *artistRoles;
+
+/**
  The date of the media item. E.g. the album release year
  */
 @property (copy, nonatomic, nullable) NSString *date;
@@ -69,7 +74,7 @@
 /**
  An array of media resources
  */
-@property (copy, nonatomic, nullable) NSArray *resources;
+@property (copy, nonatomic, nullable) NSArray <UPPMediaItemResource *> *resources;
 
 /**
  The media item title

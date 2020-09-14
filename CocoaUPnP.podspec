@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.summary      = "A modern and well tested UPnP library which feature asynchronous network calls."
 
   s.description  = <<-DESC
-                   CocoaUPnP is a logical progression of [upnpx](https://github.com/fkuehne/upnpx) 
+                   CocoaUPnP is a logical progression of [upnpx](https://github.com/fkuehne/upnpx)
                    - designed to be easy, modern and block-based.
 
                    Currently it supports most of the methods required by the audio video device
@@ -24,8 +24,8 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.xcconfig     = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
-  s.dependency 'CocoaAsyncSocket', '~> 7.5'
-  s.dependency 'Ono', '~> 2.1'
-  s.dependency 'AFNetworking', '~> 3'
-  s.dependency 'GCDWebServer', '~> 3.4'
+  s.dependency 'CocoaAsyncSocket', '~> 7.6.3'
+  s.dependency 'Ono', '~> 2.1.1'
+  s.dependency 'AFNetworking', '~> 3.2.1'
+  s.dependency 'GCDWebServer', '~> 3.5.2'
 end
